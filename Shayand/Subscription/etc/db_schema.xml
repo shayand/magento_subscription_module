@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="shayand_subscription_subscription" resource="default" engine="innodb" comment="shayand_subscription_subscription Table">
+		<column xsi:type="int" name="subscription_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="subscription_id"/>
+		</constraint>
+		<column name="created_at" nullable="true" xsi:type="datetime" comment="created_at" default="CURRENT_TIMESTAMP"/>
+		<column name="customer_id" nullable="false" xsi:type="int" comment="customer_id" identity="false"/>
+		<column name="order_id" nullable="false" xsi:type="int" comment="order_id" identity="false"/>
+		<column name="order_item_id" nullable="false" xsi:type="int" comment="order_item_id" identity="false"/>
+		<column name="period" nullable="false" xsi:type="int" comment="period" identity="false"/>
+		<column name="deleted_at" nullable="true" xsi:type="datetime" comment="deleted_at"/>
+	</table>
+	<table name="shayand_subscription_subscriptionjobs" resource="default" engine="innodb" comment="shayand_subscription_subscriptionjobs Table">
+		<column xsi:type="int" name="subscriptionjobs_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="subscriptionjobs_id"/>
+		</constraint>
+		<column name="subscription_id" nullable="true" xsi:type="int" comment="subscription_id" identity="false"/>
+		<column name="created_at" nullable="true" xsi:type="datetime" comment="created_at" default="CURRENT_TIMESTAMP"/>
+	</table>
+</schema>

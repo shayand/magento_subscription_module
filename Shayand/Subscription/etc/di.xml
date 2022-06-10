@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Shayand\Subscription\Api\CancelManagementInterface" type="Shayand\Subscription\Model\CancelManagement"/>
+	<preference for="Shayand\Subscription\Api\SubscriptionRepositoryInterface" type="Shayand\Subscription\Model\SubscriptionRepository"/>
+	<preference for="Shayand\Subscription\Api\Data\SubscriptionInterface" type="Shayand\Subscription\Model\Subscription"/>
+	<preference for="Shayand\Subscription\Api\Data\SubscriptionSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Shayand\Subscription\Model\ResourceModel\Subscription\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">shayand_subscription_subscription</argument>
+			<argument name="resourceModel" xsi:type="string">Shayand\Subscription\Model\ResourceModel\Subscription\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="shayand_subscription_subscription_listing_data_source" xsi:type="string">Shayand\Subscription\Model\ResourceModel\Subscription\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<preference for="Shayand\Subscription\Api\SubscriptionJobsRepositoryInterface" type="Shayand\Subscription\Model\SubscriptionJobsRepository"/>
+	<preference for="Shayand\Subscription\Api\Data\SubscriptionJobsInterface" type="Shayand\Subscription\Model\SubscriptionJobs"/>
+	<preference for="Shayand\Subscription\Api\Data\SubscriptionJobsSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>
