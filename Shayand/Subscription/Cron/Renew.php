@@ -71,7 +71,8 @@ class Renew
     public function execute()
     {
         $allSubscription = $this->subscriptionResources->create();
-        $currentDate = new DateTime("2022-06-25");
+        #$currentDate = new DateTime("2022-06-25");
+        $currentDate = new DateTime();
 
         foreach ($allSubscription as $singleSubscription) {
             if ($singleSubscription instanceof Subscription) {
